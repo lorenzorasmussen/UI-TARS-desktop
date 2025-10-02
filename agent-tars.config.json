@@ -1,0 +1,43 @@
+{
+  "model": {
+    "provider": "volcengine",
+    "id": "doubao-1-5-thinking-vision-pro-250428",
+    "apiKey": "your-api-key-here"
+  },
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/lorenzorasmussen/Projects"
+      ]
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git",
+        "--repository",
+        "/Users/lorenzorasmussen/Projects/UI-TARS-desktop"
+      ]
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "your-brave-api-key"
+      }
+    },
+    "webpage": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
+    }
+  },
+  "workspace": {
+    "workingDirectory": "/Users/lorenzorasmussen/Projects/UI-TARS-desktop"
+  },
+  "browser": {
+    "control": "mixed"
+  }
+}

@@ -10,7 +10,6 @@ import {
   externalizeDepsPlugin,
   bytecodePlugin,
 } from 'electron-vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 import pkg from './package.json';
 import { getExternalPkgs } from './scripts/getExternalPkgs';
@@ -44,7 +43,6 @@ export default defineConfig({
         chunkAlias: 'app_private',
         protectedStrings: [process.env.UI_TARS_APP_PRIVATE_KEY_BASE64!],
       }),
-      tsconfigPaths(),
       externalizeDepsPlugin({
         include: [...getExternalPkgs()],
       }),
@@ -90,7 +88,7 @@ export default defineConfig({
         },
       },
     },
-    plugins: [react(), tsconfigPaths(), tailwindcss()],
+    plugins: [react()],
     define: {
       APP_VERSION: JSON.stringify(pkg.version),
     },

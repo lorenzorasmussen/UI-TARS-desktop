@@ -33,6 +33,7 @@
     "pnpm": "9"
   },
   "devDependencies": {
+    "@rslib/core": "0.10.0",
     "@tarko/pnpm-toolkit": "workspace:*",
     "@types/node": "22.15.30",
     "@vitest/coverage-v8": "3.2.4",
