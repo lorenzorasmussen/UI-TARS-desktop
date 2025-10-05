@@ -17,7 +17,6 @@ import {
   TooltipTrigger,
 } from '@renderer/components/ui/tooltip';
 import { Button } from '@renderer/components/ui/button';
-// import { useScreenRecord } from '@renderer/hooks/useScreenRecord';
 import { api } from '@renderer/api';
 
 import { Play, Send, Square, Loader2 } from 'lucide-react';
@@ -105,8 +104,6 @@ const ChatInput = ({
     }
 
     const instructions = getInstantInstructions();
-
-    console.log('startRun', instructions, restUserData);
 
     let history = chatMessages;
 

@@ -57,14 +57,10 @@ export const useRunAgent = () => {
   const { settings } = useSetting();
   const { ensurePermissions } = usePermissions();
 
-  const run = async (
-    value: string,
-    history: ConversationWithSoM[],
-    callback: () => void = () => {},
-  ) => {
-    const operator = settings.operator;
+  const checkPermissions = (operator: Operator) => {
     if (
-      (operator === Operator.LocalBrowser || Operator.LocalComputer) &&
+      (operator === Operator.LocalBrowser ||
+        operator === Operator.LocalComputer) &&
       !(ensurePermissions?.accessibility && ensurePermissions?.screenCapture)
     ) {
       const permissionsText = [
@@ -77,6 +73,18 @@ export const useRunAgent = () => {
       toast.warning(
         `Please grant the required permissions(${permissionsText})`,
       );
+      return false;
+    }
+    return true;
+  };
+
+  const run = async (
+    value: string,
+    history: ConversationWithSoM[],
+    callback: () => void = () => {},
+  ) => {
+    const operator = settings.operator;
+    if (!checkPermissions(operator)) {
       return;
     }
 
@@ -88,7 +96,6 @@ export const useRunAgent = () => {
       },
     ];
     const currentMessages = getState().messages;
-    console.log('initialMessages', initialMessages, currentMessages.length);
 
     const sessionHistory = filterAndTransformWithMap(history);
 

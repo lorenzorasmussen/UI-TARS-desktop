@@ -52,8 +52,6 @@ export const useRemoteResource = (settings: Settings) => {
 
   useEffect(() => {
     if (result) {
-      console.log('SWR polling result', result);
-
       switch (result.state) {
         case 'queued':
         case 'waiting':

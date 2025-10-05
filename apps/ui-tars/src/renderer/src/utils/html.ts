@@ -18,7 +18,6 @@ export function reportHTMLContent(
   dumpData: ComputerUseUserData[],
 ): string {
   let reportContent = '';
-  console.log('dumpData', Array.isArray(dumpData));
   if (
     (Array.isArray(dumpData) && dumpData.length === 0) ||
     typeof dumpData === 'undefined'

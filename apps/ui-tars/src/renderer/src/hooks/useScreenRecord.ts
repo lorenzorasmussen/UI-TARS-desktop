@@ -160,7 +160,6 @@ export const useScreenRecord = (
 
   useEffect(() => {
     return () => {
-      console.log('unmount useScreenRecord');
       if (mediaRecorderRef.current) {
         mediaRecorderRef.current.stop();
       }
@@ -195,12 +194,6 @@ export const useScreenRecord = (
   };
 
   const canSaveRecording = !isRecording && recordedChunksRef.current.length > 0;
-  console.log(
-    '[canSaveRecording]',
-    canSaveRecording,
-    isRecording,
-    recordedChunksRef.current.length,
-  );
 
   return {
     isRecording,
