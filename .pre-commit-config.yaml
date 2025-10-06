@@ -1,0 +1,31 @@
+// Risk Log: secretlint false positive workaround
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+      - id: detect-private-key
+
+  - repo: local
+    hooks:
+      - id: branch-protection
+        name: Branch Protection
+        entry: bash -c 'if [[ $(git branch --show-current) == "main" ]]; then echo "❌ Cannot commit to main"; exit 1; fi'
+        language: system
+        # secretlint false positive workaround: pass_filenames is not a secret
+
+      - id: naming-convention
+        name: File Naming Convention
+        entry: bash -c 'if git diff --cached --name-only | grep -E "(improved|enhanced|ultimate)"; then echo "❌ Forbidden naming"; exit 1; fi'
+        language: system
+
+      - id: syntax-validation
+        name: Syntax Check
+        entry: ./scripts/validate_syntax.sh
+        language: system
+        files: \.(zsh|sh|py|js|ts)$

@@ -1,48 +1,29 @@
 # UI-TARS Desktop Project Agents
 
-This monorepo contains multiple AI agent implementations focused on GUI automation and multimodal interactions using vision-language models.
+This pnpm monorepo hosts AI agents for GUI automation using vision-language models, including Agent TARS and UI-TARS Desktop app.
 
-## Overview
+## Commands
 
-The project is structured as a pnpm monorepo with turbo for build orchestration. It includes:
+- **Build**: `turbo run ui-tars-desktop#build` or `pnpm dev:ui-tars` for dev.
+- **Lint**: `pnpm lint` (ESLint with TS/React rules, mostly relaxed).
+- **Test**: `pnpm test` (Vitest); run single test with `vitest run path/to/test.ts`.
+- **Format**: `pnpm format` (Prettier with single quotes, semicolons, trailing commas).
+- **Typecheck**: `turbo run typecheck`.
 
-- **Agent TARS**: A comprehensive multimodal AI agent stack for controlling terminals, computers, browsers, and products through natural language and vision capabilities.
-- **UI-TARS Desktop**: A native desktop application providing GUI agent functionality based on UI-TARS models.
-- **Supporting Packages**: Infrastructure, SDKs, and shared utilities for agent development.
+## Safety & Quality Features
 
-## Key Components
+- **Pre-commit Hooks**: Automated checks via pre-commit framework (`.pre-commit-config.yaml`).
+- **Backup System**: Intelligent file versioning (`./scripts/backup_file.sh <file>`).
+- **Validation Suite**: Comprehensive testing (`./scripts/test_project.sh`).
+- **Branch Protection**: No direct commits to main branch.
+- **CI/CD**: GitHub Actions quality gates (`.github/workflows/quality.yml`).
+- **Setup**: Run `./scripts/setup_safety.sh` to initialize safety features.
 
-### Apps
+## Code Style
 
-- `apps/ui-tars`: Electron-based desktop application for UI-TARS Desktop.
-
-### Packages
-
-- `packages/agent-infra`: Core infrastructure for browser automation, logging, search, and shared utilities.
-- `packages/ui-tars`: SDK, CLI, operators, and shared components for UI-TARS functionality.
-- `packages/common`: Shared configurations and build tools.
-
-### Multimodal Agents
-
-- `multimodal/agent-tars`: Full agent stack with CLI, web UI, core logic, and MCP integration.
-- `multimodal/gui-agent`: GUI agent implementations with action parsers and operators.
-- `multimodal/omni-tars`: Extended agent framework with code and GUI agents.
-- `multimodal/tarko`: Agent framework with CLI, server, UI builder, and various providers.
-
-## Coding Patterns
-
-- **Language**: TypeScript throughout the codebase.
-- **Build System**: Turbo for monorepo orchestration, Vite for bundling.
-- **Testing**: Vitest with coverage reporting.
-- **Linting/Formatting**: ESLint and Prettier with custom configurations.
-- **Package Management**: pnpm with workspace setup.
-- **Desktop**: Electron with electron-vite for development.
-- **Architecture**: Modular design with clear separation between core logic, interfaces, and implementations.
-
-## Development Workflow
-
-- Use `pnpm` for package management.
-- Run `pnpm dev:ui-tars` for desktop app development.
-- Use `pnpm test` for running tests.
-- Follow conventional commits with husky pre-commit hooks.
-- Use turbo for efficient builds across packages.
+- **Imports**: Use absolute paths; sort with `@trivago/prettier-plugin-sort-imports` (commented in config).
+- **Formatting**: Prettier: single quotes, semicolons, trailing commas, 2-space tabs.
+- **Types**: TypeScript strict; explicit returns off, unused vars off.
+- **Naming**: camelCase for vars/functions; PascalCase for classes/components.
+- **Error Handling**: Use try/catch; no specific patterns enforced.
+- **Other**: ESLint rules mostly off; follow React/TS best practices; modular architecture. No Cursor or Copilot rules.

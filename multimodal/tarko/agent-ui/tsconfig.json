@@ -9,6 +9,12 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@tarko/agent-interface": [
+        "../../../agent-interface/src"
+      ],
+      "@agent-tars/interface": [
+        "../../../agent-tars/interface/src"
       ]
     },
     "strict": true,
