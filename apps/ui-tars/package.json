@@ -108,7 +108,7 @@
     "electron-squirrel-startup": "^1.0.1",
     "electron-store": "^10.0.0",
     "electron-vite": "^3.0.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.26.0",
     "eslint-plugin-import": "^2.25.0",
     "eslint-plugin-react": "^7.34.3",
     "js-yaml": "^4.1.0",
