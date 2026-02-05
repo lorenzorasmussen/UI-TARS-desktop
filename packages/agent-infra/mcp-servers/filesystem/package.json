@@ -35,13 +35,13 @@
     "watch": "rslib build --watch"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "~1.15.1",
+    "@modelcontextprotocol/sdk": "~1.26.0",
     "mcp-http-server": "workspace:*"
   },
   "devDependencies": {
     "commander": "^13.1.0",
     "diff": "^5.1.0",
-    "glob": "^10.3.10",
+    "glob": "^12.0.0",
     "minimatch": "^10.0.1",
     "zod-to-json-schema": "^3.23.5",
     "zod": "^3.23.8",
