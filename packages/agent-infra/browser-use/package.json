@@ -43,7 +43,7 @@
     "typescript": "^5.7.3",
     "tsx": "^4.19.3",
     "vitest": "3.0.7",
-    "@vitest/coverage-v8": "3.0.7",
+    "@vitest/coverage-v8": "4.0.0",
     "@rslib/core": "0.10.0"
   }
 }
