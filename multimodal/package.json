@@ -37,7 +37,7 @@
   "devDependencies": {
     "@tarko/pnpm-toolkit": "workspace:*",
     "@types/node": "22.15.30",
-    "@vitest/coverage-v8": "3.2.4",
+    "@vitest/coverage-v8": "4.0.0",
     "doctoc": "2.2.1",
     "prettier": "3.5.3",
     "typescript": "5.8.3",
